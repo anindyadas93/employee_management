@@ -5,6 +5,16 @@
 <title>Index page</title>
 </head>
 <body>
-	<h1>Index Page</h1>
+	<h1>Employee Details</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>First Name</th>
+		</tr>
+		<tr th:each="employee : ${employees}">
+			<td th:text="${employee.id}">0</td>
+			<td th:text="${employee.firstname}">default</td>
+		</tr>
+	</table>
 </body>
 </html>

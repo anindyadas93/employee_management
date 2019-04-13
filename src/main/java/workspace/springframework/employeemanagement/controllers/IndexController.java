@@ -1,29 +1,24 @@
 package workspace.springframework.employeemanagement.controllers;
 
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import workspace.springframework.employeemanagement.model.Employee;
-import workspace.springframework.employeemanagement.repositories.EmployeeRepository;
-
-import java.util.Optional;
+import workspace.springframework.employeemanagement.services.EmployeeService;
 
 @Controller
 public class IndexController {
 	
-	private EmployeeRepository employeeRepository;
+	private final EmployeeService employeeService;
 	
-	public IndexController(EmployeeRepository employeeRepository) {
-		super();
-		this.employeeRepository = employeeRepository;
+	public IndexController(EmployeeService employeeService) {
+		//super();
+		this.employeeService = employeeService;
 	}
 
-
 	@RequestMapping({"","/","/index"})
-	public String getIndex() {
-		Optional<Employee> employeeOptional = employeeRepository.findByFirstname("Anindya");
-		System.out.println(employeeOptional.get().getId());
+	public String getIndexPage(Model model) {
+		model.addAttribute("employees", employeeService.getEmployees());
 		return "Index";
 	}
 
