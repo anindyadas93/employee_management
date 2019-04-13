@@ -1,0 +1,2 @@
+INSERT INTO employee(firstname,lastname,dateofbirth,address,phoneno,email,password) VALUES('Anindya','Das','03-02-1993','Hooghly','9007595923','anindya@gmail.com','12345');
+INSERT INTO employee(firstname,lastname,dateofbirth,address,phoneno,email,password) VALUES('Andy','Dias','03-02-1993','Hooghly','9007595923','andy@gmail.com','56789');
